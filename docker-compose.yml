@@ -1,0 +1,22 @@
+# FROM tiryoh/ros2:dashing
+version: '3'
+
+services:
+  ros2:
+    image: osrf/ros2:nightly
+    container_name: ros2
+    volumes:
+      - ./volumes/cozmo:/cozmo
+    working_dir: /cozmo
+    ports:
+      - "${COZMO_PORT}:${COZMO_PORT}/udp"
+    command: [
+      "make"
+    ]
+    networks:
+      - ros
+
+networks:
+  ros:
+
+# see http://www.theconstructsim.com/create-python-publisher-ros2/
