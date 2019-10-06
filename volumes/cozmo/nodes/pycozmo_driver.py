@@ -10,7 +10,7 @@ class CozmoRos(object):
         self.cli = pycozmo.Client()
         self.connect_and_wait()
 
-    def self_and_connect(self):
+    def connect_and_wait(self):
         self.cli.start()
         self.cli.connect()
         self.cli.wait_for_robot()

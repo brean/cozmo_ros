@@ -3,10 +3,10 @@ start:
 	python3 nodes/pycozmo_driver.py
 
 try_install:
-	if [ ! -d "pycozmo" ]; then \
-		make install; \
-	fi;
+	make install
 
 install:
-	git clone https://github.com/zayfod/pycozmo.git;
+	if [ ! -d "pycozmo" ]; then \
+		git clone https://github.com/zayfod/pycozmo.git; \
+	fi;
 	cd pycozmo && pip3 install -e .
